@@ -1,0 +1,17 @@
+/* google font  */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* tailwindcss  */
+@import "tailwindcss";
+
+/* daisy ui  */
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* default css  */
+* {
+  font-family: "Source Sans 3", sans-serif;
+}

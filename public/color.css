@@ -1,0 +1,23 @@
+Light Theme
+
+| Section | Background | Text Color | Button BG | Button Text | Card BG | Card Text | Card Shadow |
+|----------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Navbar | #f8fafc | #1e293b | hover → #e2e8f0 | active → #0f172a | – | – | – |
+| Hero / Banner | #e2e8f0 | #0f172a | #0f172a | #f8fafc | – | – | – |
+| Trending Movies Section | #ffffff | #1e293b | #ef4444 | #ffffff | #f8fafc | #0f172a | 0 4px 8px rgba(0,0,0,0.1) |
+| Top Rated Section | #f1f5f9 | #0f172a | #3b82f6 | #ffffff | #ffffff | #1e293b | 0 4px 10px rgba(0,0,0,0.08) |
+| Genres / Categories | #ffffff | #1e293b | #22c55e | #ffffff | #f8fafc | #1e293b | 0 4px 8px rgba(0,0,0,0.08) |
+| Reviews / Testimonials | #f8fafc | #1e293b | #0ea5e9 | #ffffff | #ffffff | #1e293b | 0 6px 10px rgba(0,0,0,0.05) |
+| Footer | #e2e8f0 | #0f172a | hover → #94a3b8 | #ffffff | – | – | – |
+
+🌚 Dark Theme
+
+| Section | Background | Text Color | Button BG | Button Text | Card BG | Card Text | Card Shadow |
+|----------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Navbar | #0f172a | #f1f5f9 | hover → #1e293b | active → #38bdf8 | – | – | – |
+| Hero / Banner | #1e293b | #f8fafc | #38bdf8 | #0f172a | – | – | – |
+| Trending Movies Section | #0f172a | #f8fafc | #ef4444 | #ffffff | #1e293b | #f8fafc | 0 4px 8px rgba(255,255,255,0.05) |
+| Top Rated Section | #1e293b | #f8fafc | #3b82f6 | #ffffff | #0f172a | #f8fafc | 0 4px 10px rgba(255,255,255,0.08) |
+| Genres / Categories | #0f172a | #f8fafc | #22c55e | #0f172a | #1e293b | #f8fafc | 0 4px 8px rgba(255,255,255,0.07) |
+| Reviews / Testimonials | #1e293b | #f1f5f9 | #0ea5e9 | #0f172a | #0f172a | #f8fafc | 0 6px 10px rgba(255,255,255,0.05) |
+| Footer | #0f172a | #cbd5e1 | hover → #334155 | #ffffff | – | – | – |
