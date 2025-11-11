@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { MovieContext } from "../context/movieContext";
+import { AuthContext } from "../context/AuthContext";
 
 const AddMovieForm = () => {
+  const { user } = useContext(AuthContext);
   const { movies, setMovies } = useContext(MovieContext);
+
+  console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +38,7 @@ const AddMovieForm = () => {
       language,
       country,
       download: 0,
-      created_by: "user@example.com",
+      created_by: user?.email,
       created_at: new Date().toISOString(),
     };
 

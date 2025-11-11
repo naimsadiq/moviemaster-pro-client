@@ -93,6 +93,32 @@ const MovieDetails = () => {
                 <div className="text-sm">Total views</div>
               </div>
             </div>
+
+            <div className="flex flex-wrap gap-4 mt-12">
+              {/* Edit Button */}
+              <button
+                onClick={() => handleEdit(movie._id)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              >
+                Edit
+              </button>
+
+              {/* Delete Button */}
+              <button
+                onClick={() => handleDelete(movie._id)}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+              >
+                Delete
+              </button>
+
+              {/* Watchlist Button */}
+              <button
+                onClick={() => handleWatchlist(movie)}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+              >
+                Watchlist
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -117,16 +143,6 @@ const MovieDetails = () => {
           </div>
         </div>
       </dialog>
-      {/* <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/8ugaeA-nMTc?si=EEy5ZgjdoxtP_0ky"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe> */}
     </div>
   );
 };
