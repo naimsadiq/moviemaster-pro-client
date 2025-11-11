@@ -1,6 +1,26 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import logo from "../../assets/movie-logo.png";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import profileIcon from "../../assets/profile-icon.png";
+
 const Navbar = () => {
+  const { user, signOutUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("Log out successful");
+        setUser(null);
+        navigate("/sign-in");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
   const linksCssClass =
     "px-3 py-2 font-medium rounded hover:underline cursor-pointer";
   const links = (
@@ -123,29 +143,8 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="flex items-center gap-4 px-1">{links}</ul>
         </div>
+
         <div className="navbar-end gap-3">
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) =>
-              `font-semibold ${isActive ? "font-semibold" : "hover:underline"}`
-            }
-          >
-            Sign In
-          </NavLink>
-          <NavLink
-            to="/sign-up"
-            className={({ isActive }) =>
-              `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" ${
-                isActive
-                  ? "font-semibold bg-linear-to-r from-indigo-900 to-indigo-900 text-white"
-                  : ""
-              }`
-            }
-          >
-            Sign Up
-          </NavLink>
-        </div>
-        {/* <div className="navbar-end gap-3">
           {user ? (
             <NavLink
               to="/profile"
@@ -167,21 +166,21 @@ const Navbar = () => {
                        opacity-0 transition-opacity duration-300 
                        pointer-events-none
                        group-hover:opacity-100
-                       whitespace-nowrap"
+                       whitespace-nowrap z-10"
               >
                 {user?.displayName || "My Profile"}
               </span>
             </NavLink>
           ) : (
             <NavLink
-              to="/login"
+              to="/sign-in"
               className={({ isActive }) =>
-                `${
-                  isActive ? "font-semibold text-[#7100d6]" : "hover:underline"
+                `font-semibold ${
+                  isActive ? "font-semibold" : "hover:underline"
                 }`
               }
             >
-              Login
+              Sign In
             </NavLink>
           )}
 
@@ -189,7 +188,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleLogOut}
               className={({ isActive }) =>
-                `bg-linear-to-r from-blue-600 to-purple-600  hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl btn btn-outline btn-primary md:px-8 rounded-full px-6 text-sm md:text-[16px] ${
+                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 ${
                   isActive
                     ? "font-semibold bg-linear-to-r from-blue-600 to-purple-600 text-white"
                     : "text-black"
@@ -202,17 +201,17 @@ const Navbar = () => {
             <NavLink
               to="/sign-up"
               className={({ isActive }) =>
-                `bg-linear-to-r  from-blue-600 to-purple-600  hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl btn btn-outline btn-primary md:px-8 px-6 text-sm md:text-[16px] rounded-full text-white ${
+                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" ${
                   isActive
-                    ? "font-semibold bg-linear-to-r from-blue-600 to-purple-600 text-white"
-                    : "text-black"
+                    ? "font-semibold bg-linear-to-r from-indigo-900 to-indigo-900 text-white"
+                    : ""
                 }`
               }
             >
               Sign Up
             </NavLink>
           )}
-        </div> */}
+        </div>
       </div>
     </nav>
   );

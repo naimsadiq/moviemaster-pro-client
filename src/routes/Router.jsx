@@ -8,6 +8,7 @@ import MovieDetails from "../components/MovieDetails";
 import AddMovieForm from "../pages/AddMovieForm";
 import MyCollection from "../pages/MyCollection";
 import MyWatchlist from "../pages/MyWatchlist";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "my-watchlist",
         element: <MyWatchlist></MyWatchlist>,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>,
       },
     ],
   },

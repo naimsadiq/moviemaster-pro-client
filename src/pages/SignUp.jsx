@@ -1,7 +1,69 @@
+import { useContext, useState } from "react";
 import { FaUser, FaEnvelope, FaLock, FaEyeSlash, FaEye } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile, setUser, setLoading } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    setError("");
+    const displayName = e.target.name?.value;
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+
+    if (displayName.trim().length < 5) {
+      setErrorName("Name should be more than 5 characters");
+      return;
+    }
+
+    const length6Pattern = /^.{6,}$/;
+    const upperCasePattern = /[A-Z]/;
+    const lowerCasePattern = /[a-z]/;
+
+    if (!length6Pattern.test(password)) {
+      setError("At least 6 characters required");
+      return;
+    } else if (!upperCasePattern.test(password)) {
+      setError("Add at least one uppercase letter");
+      return;
+    } else if (!lowerCasePattern.test(password)) {
+      setError("Add at least one lowercase letter");
+      return;
+    }
+
+    createUser(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        updateUserProfile(displayName)
+          .then(() => {
+            // setUser(user);
+            console.log(user);
+            navigate("/");
+            // setLoading(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
+  const handleTogglePasswordShow = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
@@ -9,7 +71,7 @@ const SignUp = () => {
           Create your account
         </h2>
 
-        <form onSubmit={""} className="space-y-5">
+        <form onSubmit={handleSignOut} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Full Name
@@ -24,6 +86,9 @@ const SignUp = () => {
                 required
               />
             </div>
+            {errorName && (
+              <p className="text-sm text-red-500 mt-1">{errorName}</p>
+            )}
           </div>
 
           <div>
@@ -49,20 +114,20 @@ const SignUp = () => {
             <div className="flex items-center border border-gray-300 rounded-lg px-3 relative">
               <FaLock className="text-gray-400 mr-2" />
               <input
-                type="text"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 className="w-full py-2 outline-none"
                 required
               />
               <button
-                onClick={"handleTogglePasswordShow"}
+                onClick={handleTogglePasswordShow}
                 className="cursor-pointer top-3 right-5 absolute"
               >
-                {/* {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>} */}
+                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
               </button>
             </div>
-            {/* {error && <p className="text-sm text-red-500 mt-1">{error}</p>} */}
+            {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
           </div>
 
           <button

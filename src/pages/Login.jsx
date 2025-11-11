@@ -1,10 +1,57 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const location = useLocation();
   const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+
+    signInUser(email, password)
+      .then((res) => {
+        setUser(res.user);
+        navigate(location.state || "/");
+        toast.success("Signin successful");
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error(e.message);
+      });
+  };
+
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((res) => {
+        setUser(res.user);
+        navigate(location.state || "/");
+        toast.success("Signin successful");
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error(e.message);
+      });
+  };
+
+  const handleTogglePasswordShow = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    navigate("/forgot-password", { state: { email } });
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4">
@@ -13,7 +60,7 @@ const Login = () => {
           Sign in to your account
         </h2>
 
-        <form onSubmit={"handleSubmit"} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Email Address
@@ -26,6 +73,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 className="w-full py-2 outline-none"
                 required
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -37,17 +85,17 @@ const Login = () => {
             <div className="flex items-center border border-gray-300 rounded-lg px-3 relative">
               <FaLock className="text-gray-400 mr-2" />
               <input
-                type="text"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 className="w-full py-2 outline-none"
                 required
               />
               <button
-                onClick={"handleTogglePasswordShow"}
+                onClick={handleTogglePasswordShow}
                 className="cursor-pointer top-3 right-5 absolute"
               >
-                {/* {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>} */}
+                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
               </button>
             </div>
           </div>
@@ -55,7 +103,7 @@ const Login = () => {
           <div className="flex items-center justify-between pt-2">
             <div className="text-sm">
               <a
-                onClick={"handleForgotPassword"}
+                onClick={handleForgotPassword}
                 href="#"
                 className="font-medium text-indigo-600 hover:underline hover:text-indigo-500"
               >
@@ -84,7 +132,7 @@ const Login = () => {
 
         <div className="">
           <button
-            onClick={"handleSignInWithGoogle"}
+            onClick={handleSignInWithGoogle}
             className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out cursor-pointer"
           >
             <FcGoogle className="h-5 w-5 mr-2" />
