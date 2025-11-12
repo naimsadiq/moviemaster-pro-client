@@ -13,6 +13,7 @@ import UpdateMovieDetails from "../components/UpdateMovieDetails";
 import Loader from "../pages/Loader";
 import GenreMovies from "../pages/GenreMovies";
 import { PrivateRoute } from "./PrivateRoute";
+import PageNotFound from "../pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "movie-details/:id",
+        errorElement: <PageNotFound />,
         element: (
           <PrivateRoute>
             <MovieDetails></MovieDetails>
@@ -75,6 +77,7 @@ const router = createBrowserRouter([
 
       {
         path: "update-movie/:id",
+        errorElement: <PageNotFound />,
         element: (
           <PrivateRoute>
             <UpdateMovieDetails></UpdateMovieDetails>
@@ -89,6 +92,10 @@ const router = createBrowserRouter([
         element: <GenreMovies></GenreMovies>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
 
