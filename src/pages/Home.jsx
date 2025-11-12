@@ -71,13 +71,13 @@ const Home = () => {
           </div>
         </Swiper>
       </section>
-      <section className="bg-[#f9fafb]">
+      <section className="bg-[#f9fafb] dark:bg-[#23036a]">
         <GenreMenu></GenreMenu>
       </section>
-      <section className="py-10 bg-[#f1f5f9] text-[#6992f3]">
+      <section className="py-10 bg-[#f1f5f9] text-[#6992f3] dark:bg-[#191e24] dark:text-white">
         <TopRatedMovies></TopRatedMovies>
       </section>
-      <section className="py-10 bg-[#f5f3ff] text-[#6992f3]">
+      <section className="py-10 bg-[#f5f3ff] text-[#6992f3] dark:bg-[#121212] dark:text-white">
         <LatestMovies></LatestMovies>
       </section>
     </div>

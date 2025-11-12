@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import Loader from "./Loader";
+import movieCamera from "../assets/movie-camera.png";
 import WatchListCard from "../components/WatchListCard";
 
 const MyWatchlist = () => {
@@ -12,9 +13,9 @@ const MyWatchlist = () => {
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-watchlist?email=${user?.email}`, {
-      // headers: {
-      //   authorization: `Bearer ${user.accessToken}`,
-      // },
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -27,7 +28,7 @@ const MyWatchlist = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="bg-[#f5f3ff] text-[#6992f3] min-h-screen">
+    <div className="min-h-screen">
       <div className="max-w-9/12 mx-auto py-10">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           My Watchlist
@@ -35,7 +36,7 @@ const MyWatchlist = () => {
         {movies.length === 0 ? (
           <div className="flex flex-col items-center justify-start mt-20 text-gray-500">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/4076/4076509.png"
+              src={movieCamera}
               alt="Empty collection"
               className="w-32 h-32 mb-4 opacity-70"
             />
@@ -44,7 +45,7 @@ const MyWatchlist = () => {
             </p>
             <button
               onClick={() => navigate("/")}
-              className="mt-4 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="mt-4 px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer"
             >
               Browse Movies
             </button>

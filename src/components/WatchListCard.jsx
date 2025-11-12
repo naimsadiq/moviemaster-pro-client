@@ -29,7 +29,7 @@ const WatchListCard = ({ movie, setMovies }) => {
       });
   };
   return (
-    <div className="shadow-md rounded-md p-5 bg-white text-gray-800">
+    <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white ">
       <div className="flex justify-between">
         <div>
           <div className="flex gap-3">

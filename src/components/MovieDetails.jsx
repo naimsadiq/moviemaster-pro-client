@@ -15,13 +15,17 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/movie-details/${id}`, {})
+    fetch(`http://localhost:3000/movie-details/${id}`, {
+      headers: {
+        authorization: `Bearer ${user?.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.result);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, user]);
 
   const modalRef = useRef(null);
   const handleOpenModal = () => {

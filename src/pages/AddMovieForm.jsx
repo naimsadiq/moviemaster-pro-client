@@ -62,18 +62,20 @@ const AddMovieForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 dark:bg-[#171f38] dark:text-white">
+      <div className="max-w-2xl mx-auto bg-white dark:bg-[#232e4d] dark:text-white rounded-xl shadow-md overflow-hidden">
         <div className="p-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Add New Movie</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+              Add New Movie
+            </h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Title *
                 </label>
                 <input
@@ -86,7 +88,7 @@ const AddMovieForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Release Year *
                 </label>
                 <input
@@ -102,7 +104,7 @@ const AddMovieForm = () => {
             {/* Rating and Runtime */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Rating *
                 </label>
                 <input
@@ -118,7 +120,7 @@ const AddMovieForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Runtime *
                 </label>
                 <input
@@ -134,7 +136,7 @@ const AddMovieForm = () => {
             {/* Release Date and Language */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Release Date *
                 </label>
                 <input
@@ -147,7 +149,7 @@ const AddMovieForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Language *
                 </label>
                 <input
@@ -162,7 +164,7 @@ const AddMovieForm = () => {
 
             {/* Country */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Country *
               </label>
               <input
@@ -176,7 +178,7 @@ const AddMovieForm = () => {
 
             {/* Genres */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Genres *
               </label>
               <input
@@ -191,7 +193,7 @@ const AddMovieForm = () => {
             {/* URLs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Image URL *
                 </label>
                 <input
@@ -204,7 +206,7 @@ const AddMovieForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Trailer URL *
                 </label>
                 <input
@@ -219,7 +221,7 @@ const AddMovieForm = () => {
 
             {/* Overview */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Overview *
               </label>
               <textarea
