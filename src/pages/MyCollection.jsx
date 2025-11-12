@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import MovieCard from "../components/MovieCard";
 import { useNavigate } from "react-router";
 import movieCamera from "../assets/movie-camera.png";
+import CollectionCard from "../components/CollectionCard";
 
 const MyCollection = () => {
   const { user } = useContext(AuthContext);
@@ -48,9 +49,13 @@ const MyCollection = () => {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-5 gap-8 pt-8">
+        <div className="pt-8 flex flex-col-reverse gap-7">
           {movies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie}></MovieCard>
+            <CollectionCard
+              key={movie._id}
+              setMovies={setMovies}
+              movie={movie}
+            ></CollectionCard>
           ))}
         </div>
       )}
