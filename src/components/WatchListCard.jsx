@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStarHalfAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const WatchListCard = ({ movie, setMovies }) => {
   const {
@@ -15,6 +16,11 @@ const WatchListCard = ({ movie, setMovies }) => {
   // console.log(movie);
 
   const handleDelete = (id) => {
+    Swal.fire({
+      title: "Deleted!",
+      icon: "success",
+      draggable: true,
+    });
     console.log(id);
     fetch(`http://localhost:3000/my-watchlist/${id}`, {
       method: "DELETE",

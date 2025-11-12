@@ -187,7 +187,7 @@ const Navbar = () => {
 
           {user ? (
             <NavLink
-              to="/profile"
+              to="/"
               className={({ isActive }) =>
                 `${
                   isActive ? "font-semibold text-[#7100d6]" : "hover:underline"

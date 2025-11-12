@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { MovieContext } from "../context/movieContext";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const UpdateMovieDetails = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState(data);
   const { setMovies } = useContext(MovieContext);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -30,6 +32,12 @@ const UpdateMovieDetails = () => {
     e.preventDefault();
     if (!formData) return;
 
+    Swal.fire({
+      title: "Updated!",
+      icon: "success",
+      draggable: true,
+    });
+
     const { _id, ...submissionData } = formData;
     fetch(`http://localhost:3000/movies/${formData._id}`, {
       method: "PUT",
@@ -48,6 +56,7 @@ const UpdateMovieDetails = () => {
             movie._id === _id ? { ...movie, ...submissionData } : movie
           )
         );
+        navigate(-1);
       })
       .catch((err) => {
         console.log(err);

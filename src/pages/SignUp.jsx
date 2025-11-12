@@ -52,7 +52,7 @@ const SignUp = () => {
         console.log(user);
         updateUserProfile(displayName, photoURL)
           .then(() => {
-            // setUser(user);
+            setUser(user);
             console.log(user);
             navigate("/");
             setLoading(false);
