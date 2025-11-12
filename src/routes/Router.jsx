@@ -12,6 +12,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import UpdateMovieDetails from "../components/UpdateMovieDetails";
 import Loader from "../pages/Loader";
 import GenreMovies from "../pages/GenreMovies";
+import { PrivateRoute } from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,19 +38,35 @@ const router = createBrowserRouter([
       },
       {
         path: "movie-details/:id",
-        element: <MovieDetails></MovieDetails>,
+        element: (
+          <PrivateRoute>
+            <MovieDetails></MovieDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "add-movie",
-        element: <AddMovieForm></AddMovieForm>,
+        element: (
+          <PrivateRoute>
+            <AddMovieForm></AddMovieForm>
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-collection",
-        element: <MyCollection></MyCollection>,
+        element: (
+          <PrivateRoute>
+            <MyCollection></MyCollection>
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-watchlist",
-        element: <MyWatchlist></MyWatchlist>,
+        element: (
+          <PrivateRoute>
+            <MyWatchlist></MyWatchlist>
+          </PrivateRoute>
+        ),
       },
       {
         path: "forgot-password",
@@ -58,7 +75,11 @@ const router = createBrowserRouter([
 
       {
         path: "update-movie/:id",
-        element: <UpdateMovieDetails></UpdateMovieDetails>,
+        element: (
+          <PrivateRoute>
+            <UpdateMovieDetails></UpdateMovieDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/movies/${params.id}`),
       },
