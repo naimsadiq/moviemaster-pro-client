@@ -12,6 +12,7 @@ import LatestMovies from "../components/LatestMovies";
 import MovieCard from "../components/MovieCard";
 import BannerText from "../components/header/BannerText";
 import GenreMenu from "../components/GenreMenu";
+import AboutPlatform from "../components/AboutPlatform";
 const Home = () => {
   const { movies, loading } = useContext(MovieContext);
   const [moviesData, setMoviesDatas] = useState([]);
@@ -79,6 +80,9 @@ const Home = () => {
       </section>
       <section className="py-10 bg-[#f5f3ff] text-[#6992f3] dark:bg-[#121212] dark:text-white">
         <LatestMovies></LatestMovies>
+      </section>
+      <section className="">
+        <AboutPlatform></AboutPlatform>
       </section>
     </div>
   );
