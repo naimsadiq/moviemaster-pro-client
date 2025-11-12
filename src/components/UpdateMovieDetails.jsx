@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router";
 import { toast } from "react-toastify";
 import { MovieContext } from "../context/movieContext";
+import { AuthContext } from "../context/AuthContext";
 
 const UpdateMovieDetails = () => {
   const data = useLoaderData();
+  const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState(data);
   const { setMovies } = useContext(MovieContext);
 
@@ -33,6 +35,7 @@ const UpdateMovieDetails = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${user?.accessToken}`,
       },
       body: JSON.stringify(submissionData),
     })

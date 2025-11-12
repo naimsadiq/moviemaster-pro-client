@@ -46,6 +46,7 @@ const AddMovieForm = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${user?.accessToken}`,
       },
       body: JSON.stringify(newMovieData),
     })
