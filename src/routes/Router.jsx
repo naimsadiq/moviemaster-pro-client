@@ -9,11 +9,15 @@ import AddMovieForm from "../pages/AddMovieForm";
 import MyCollection from "../pages/MyCollection";
 import MyWatchlist from "../pages/MyWatchlist";
 import ForgotPassword from "../pages/ForgotPassword";
+import UpdateMovieDetails from "../components/UpdateMovieDetails";
+import Loader from "../pages/Loader";
+import GenreMovies from "../pages/GenreMovies";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    hydrateFallbackElement: <Loader></Loader>,
     children: [
       {
         index: true,
@@ -48,8 +52,20 @@ const router = createBrowserRouter([
         element: <MyWatchlist></MyWatchlist>,
       },
       {
-        path: "/forgot-password",
+        path: "forgot-password",
         element: <ForgotPassword></ForgotPassword>,
+      },
+
+      {
+        path: "update-movie/:id",
+        element: <UpdateMovieDetails></UpdateMovieDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/movies/${params.id}`),
+      },
+
+      {
+        path: "genre/:genreName",
+        element: <GenreMovies></GenreMovies>,
       },
     ],
   },

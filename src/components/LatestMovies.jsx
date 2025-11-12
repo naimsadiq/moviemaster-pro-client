@@ -20,9 +20,9 @@ const LatestMovies = () => {
   }
   return (
     <div className="max-w-9/12 mx-auto">
-      <div className="flex justify-between items-center my-10">
+      <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Latest Movies</h1>
-        <div>View all</div>
+        <div className="pr-6">View all</div>
       </div>
       <div className="grid grid-cols-5 gap-8 pt-8">
         {latestMovies.map((movie) => (

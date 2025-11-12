@@ -1,9 +1,34 @@
-import React from "react";
+import { useContext } from "react";
+import { MovieContext } from "../context/movieContext";
 
-const SearchBar = () => {
+const SearchBar = ({ setSearchedMovies, setLoading, allMovies }) => {
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search_text = e.target.search.value.trim();
+    console.log(search_text);
+
+    if (!search_text) {
+      setSearchedMovies(allMovies);
+      return;
+    }
+
+    setLoading(true);
+
+    fetch(`http://localhost:3000/search?search=${search_text}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSearchedMovies(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  };
   return (
-    <div className="">
-      <div className="flex items-center justify-end">
+    <div className="pr-6">
+      <form onSubmit={handleSearch} className="flex items-center justify-end">
         <label className="flex items-center gap-2 bg-white/10 border border-gray-400/30 rounded-l-xl px-4 py-2 backdrop-blur-sm">
           <svg
             className="h-5 w-5 text-gray-300"
@@ -23,16 +48,21 @@ const SearchBar = () => {
           </svg>
           <input
             type="search"
-            required
+            name="search"
             placeholder="Search for a movie..."
-            className="bg-transparent outline-none text-white placeholder-gray-400 w-56 sm:w-72"
+            className="outline-none text-gray-700  w-56 sm:w-72"
+            onChange={(e) => {
+              if (e.target.value.trim() === "") {
+                setSearchedMovies(allMovies);
+              }
+            }}
           />
         </label>
 
         <button className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l dark:focus:ring-purple-800 font-medium px-5 py-[9px] rounded-r-xl">
           Search
         </button>
-      </div>
+      </form>
     </div>
   );
 };

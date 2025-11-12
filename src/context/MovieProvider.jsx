@@ -13,7 +13,7 @@ const MovieProvider = ({ children }) => {
         setLoading(false);
       });
   }, []);
-  const moviesInfo = { movies, setMovies, loading };
+  const moviesInfo = { movies, setMovies, loading, setLoading };
   return <MovieContext value={moviesInfo}>{children}</MovieContext>;
 };
 

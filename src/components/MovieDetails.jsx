@@ -1,14 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import Loader from "../pages/Loader";
+import { MovieContext } from "../context/movieContext";
+import { AuthContext } from "../context/AuthContext";
 const MovieDetails = () => {
   const { id } = useParams();
+  const { setMovies } = useContext(MovieContext);
+  const { user } = useContext(AuthContext);
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:3000/movie-details/${id}`, {})
       .then((res) => res.json())
@@ -34,6 +39,59 @@ const MovieDetails = () => {
     trailer_url,
     genres,
   } = movie;
+
+  const handleEdit = (id) => {
+    navigate(`/update-movie/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:3000/movie/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
+        console.log(data);
+        navigate("/movies");
+      });
+  };
+
+  const handleWatchlist = (movie) => {
+    const movieData = {
+      title: movie.title,
+      release_year: movie.release_year,
+      rating: movie.rating,
+      genres: movie.genres,
+      overview: movie.overview,
+      image_url: movie.image_url,
+      trailer_url: movie.trailer_url,
+      release_date: movie.release_date,
+      runtime: movie.runtime,
+      language: movie.language,
+      country: movie.country,
+      download: movie.download,
+      created_by: movie.created_by,
+      watchlist_by: user?.email,
+      created_at: movie.created_at,
+    };
+    fetch(`http://localhost:3000/watchlist/${movie._id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(movieData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   if (loading) {
     return <Loader></Loader>;
@@ -95,23 +153,24 @@ const MovieDetails = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 mt-12">
-              {/* Edit Button */}
-              <button
-                onClick={() => handleEdit(movie._id)}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-              >
-                Edit
-              </button>
+              {user?.email === created_by && (
+                <>
+                  <button
+                    onClick={() => handleEdit(movie._id)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    Edit
+                  </button>
 
-              {/* Delete Button */}
-              <button
-                onClick={() => handleDelete(movie._id)}
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-              >
-                Delete
-              </button>
+                  <button
+                    onClick={() => handleDelete(movie._id)}
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
 
-              {/* Watchlist Button */}
               <button
                 onClick={() => handleWatchlist(movie)}
                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"

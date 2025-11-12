@@ -7,9 +7,11 @@ import "swiper/css";
 import { Pagination, Autoplay } from "swiper/modules";
 import { MovieContext } from "../context/movieContext";
 import { useContext, useEffect, useState } from "react";
-import BannerCard from "../components/header/BannerCard";
 import Loader from "./Loader";
 import LatestMovies from "../components/LatestMovies";
+import MovieCard from "../components/MovieCard";
+import BannerText from "../components/header/BannerText";
+import GenreMenu from "../components/GenreMenu";
 const Home = () => {
   const { movies, loading } = useContext(MovieContext);
   const [moviesData, setMoviesDatas] = useState([]);
@@ -27,14 +29,15 @@ const Home = () => {
   }
   return (
     <div>
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[550px] overflow-hidden">
         <img
           className="w-full h-full absolute object-cover"
           src={banner}
           alt=""
         />
         <div className="w-full h-[600px] absolute bg-[#00000060]"></div>
-        <Search></Search>
+        {/* <Search></Search> */}
+        {/* <BannerText></BannerText> */}
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -57,21 +60,24 @@ const Home = () => {
             },
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper absolute w-10/12 mx-auto -bottom-[180px]"
+          className="mySwiper absolute w-10/12 mx-auto top-23"
         >
           <div className="md:py-5">
             {moviesData.map((movie) => (
               <SwiperSlide key={movie.id}>
-                <BannerCard movie={movie} />
+                <MovieCard movie={movie} />
               </SwiperSlide>
             ))}
           </div>
         </Swiper>
       </section>
-      <section className="py-16 bg-[#f1f5f9] text-[#6992f3]">
+      <section className="bg-[#f9fafb]">
+        <GenreMenu></GenreMenu>
+      </section>
+      <section className="py-10 bg-[#f1f5f9] text-[#6992f3]">
         <TopRatedMovies></TopRatedMovies>
       </section>
-      <section className="py-16 bg-[#f5f3ff] text-[#6992f3]">
+      <section className="py-10 bg-[#f5f3ff] text-[#6992f3]">
         <LatestMovies></LatestMovies>
       </section>
     </div>
