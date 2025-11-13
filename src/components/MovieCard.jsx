@@ -25,7 +25,7 @@ const MovieCard = ({ movie }) => {
           onClick={handleMovieDetails}
           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 z-30"
         >
-          <span className=" px-4 py-1.5 text-sm bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer">
+          <span className=" px-4 py-1.5 text-sm bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer">
             ▶ View Details
           </span>
         </button>

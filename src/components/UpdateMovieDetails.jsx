@@ -80,7 +80,6 @@ const UpdateMovieDetails = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -111,7 +110,6 @@ const UpdateMovieDetails = () => {
               </div>
             </div>
 
-            {/* Rating and Runtime */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -145,7 +143,6 @@ const UpdateMovieDetails = () => {
               </div>
             </div>
 
-            {/* Release Date and Language */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -176,7 +173,6 @@ const UpdateMovieDetails = () => {
               </div>
             </div>
 
-            {/* Country */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Country *
@@ -191,7 +187,6 @@ const UpdateMovieDetails = () => {
               />
             </div>
 
-            {/* Genres */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Genres (comma separated) *
@@ -207,7 +202,6 @@ const UpdateMovieDetails = () => {
               />
             </div>
 
-            {/* URLs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -238,7 +232,6 @@ const UpdateMovieDetails = () => {
               </div>
             </div>
 
-            {/* Overview */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Overview *
@@ -253,7 +246,6 @@ const UpdateMovieDetails = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end pt-6">
               <button
                 type="submit"

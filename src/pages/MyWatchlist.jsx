@@ -32,7 +32,7 @@ const MyWatchlist = () => {
   }
   return (
     <div className="min-h-screen">
-      <div className="md:max-w-9/12 max-w-11/12 mx-auto py-10">
+      <div className="lg:max-w-9/12 max-w-11/12 mx-auto py-10">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           My Watchlist
         </h2>
@@ -48,7 +48,7 @@ const MyWatchlist = () => {
             </p>
             <button
               onClick={() => navigate("/")}
-              className="mt-4 px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer"
+              className="mt-4 px-5 py-2 bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer"
             >
               Browse Movies
             </button>

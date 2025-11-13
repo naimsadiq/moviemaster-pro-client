@@ -51,7 +51,6 @@ const AddMovieForm = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        // toast.success("Successfully added!")
         const remaingMovies = [...movies, newMovieData];
         setMovies(remaingMovies);
         Swal.fire({
@@ -82,7 +81,6 @@ const AddMovieForm = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
@@ -96,7 +94,6 @@ const AddMovieForm = () => {
                   required
                 />
               </div>
-
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                   Release Year *
@@ -110,8 +107,6 @@ const AddMovieForm = () => {
                 />
               </div>
             </div>
-
-            {/* Rating and Runtime */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
@@ -143,7 +138,6 @@ const AddMovieForm = () => {
               </div>
             </div>
 
-            {/* Release Date and Language */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
@@ -172,7 +166,6 @@ const AddMovieForm = () => {
               </div>
             </div>
 
-            {/* Country */}
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Country *
@@ -186,7 +179,6 @@ const AddMovieForm = () => {
               />
             </div>
 
-            {/* Genres */}
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Genres *
@@ -200,7 +192,6 @@ const AddMovieForm = () => {
               />
             </div>
 
-            {/* URLs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
@@ -229,7 +220,6 @@ const AddMovieForm = () => {
               </div>
             </div>
 
-            {/* Overview */}
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-white mb-2">
                 Overview *
@@ -243,11 +233,10 @@ const AddMovieForm = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-center pt-6">
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l text-white font-medium py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition dark:focus:ring-purple-800 duration-200"
+                className="bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l text-white font-medium py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition dark:focus:ring-purple-800 duration-200"
               >
                 Add Movie Now
               </button>

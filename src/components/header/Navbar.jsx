@@ -42,7 +42,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${linksCssClass} ${
               isActive
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                ? "text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
                 : ""
             }`
           }
@@ -56,7 +56,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${linksCssClass} ${
               isActive
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                ? "text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
                 : ""
             }`
           }
@@ -70,7 +70,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${linksCssClass} ${
               isActive
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                ? "text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
                 : ""
             }`
           }
@@ -85,7 +85,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${linksCssClass} ${
               isActive
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                ? "text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
                 : ""
             }`
           }
@@ -99,7 +99,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${linksCssClass} ${
               isActive
-                ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+                ? "text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
                 : ""
             }`
           }
@@ -112,7 +112,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#f8fafc] text-[#1e293b] dark:bg-[#121212] dark:text-white shadow">
-      <div className="navbar md:w-9/12 mx-auto px-0 md:px-2">
+      <div className="navbar lg:w-9/12 md:w-11/12 mx-auto px-0 lg:px-2">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -134,7 +134,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu  bg-white dark:bg-black menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow z-50"
             >
               {links}
             </ul>
@@ -142,7 +142,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <Link
               to="/"
-              className="flex items-center md:text-2xl text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+              className="flex items-center md:text-2xl text-lg font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500"
             >
               <div className="h-16 pb-2 md:block hidden">
                 <img className="h-full" src={logo} alt="" />
@@ -228,7 +228,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleLogOut}
               className={({ isActive }) =>
-                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm md:px-5 px-4 md:py-2.5 py-2 text-center me-2 mb-2 ${
+                `text-white bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm md:px-5 px-4 md:py-2.5 py-2 text-center me-2 mb-2 ${
                   isActive
                     ? "font-semibold bg-linear-to-r from-blue-600 to-purple-600 text-white"
                     : "text-black"
@@ -241,7 +241,7 @@ const Navbar = () => {
             <NavLink
               to="/sign-up"
               className={({ isActive }) =>
-                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" ${
+                `text-white bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm md:px-5 px-4 md:py-2.5 py-2 text-center me-2 mb-2" ${
                   isActive
                     ? "font-semibold bg-linear-to-r from-indigo-900 to-indigo-900 text-white"
                     : ""

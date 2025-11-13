@@ -3,7 +3,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { Navigate, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Loader from "../pages/Loader";
 import { MovieContext } from "../context/movieContext";
 import { AuthContext } from "../context/AuthContext";
@@ -110,8 +110,7 @@ const MovieDetails = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -130,8 +129,8 @@ const MovieDetails = () => {
   }
   return (
     <div className="bg-[#200b0b] min-h-8/12">
-      <div className="md:max-w-9/12 max-w-11/12 mx-auto px-4">
-        <div className="flex flex-col md:flex-row gap-8 md:py-20 py-12">
+      <div className="lg:max-w-9/12 max-w-11/12 mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-8 lg:py-20 py-12">
           <div className="h-[470px]">
             <img className="h-full rounded-md" src={image_url} alt="" />
           </div>
@@ -228,7 +227,6 @@ const MovieDetails = () => {
 
           <div className="modal-action">
             <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
               <button className="btn">Close</button>
             </form>
           </div>

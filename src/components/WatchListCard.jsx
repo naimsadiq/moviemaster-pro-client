@@ -13,7 +13,6 @@ const WatchListCard = ({ movie, setMovies }) => {
     runtime,
     release_year,
   } = movie;
-  // console.log(movie);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -29,9 +28,8 @@ const WatchListCard = ({ movie, setMovies }) => {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
-        console.log(data);
       });
   };
   return (

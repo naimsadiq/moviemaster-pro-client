@@ -2,14 +2,15 @@ import React from "react";
 
 const AboutPlatform = () => {
   return (
-    <section className="dark:bg-gray-900 dark:text-white py-16 px-6">
+    <section
+      id="#about_us"
+      className="dark:bg-gray-900 dark:text-white py-16 px-6"
+    >
       <div className="max-w-5xl mx-auto text-center space-y-6">
-        {/* Title */}
         <h2 className="text-4xl font-bold mb-4 text-orange-400">
           About Film Review
         </h2>
 
-        {/* Description */}
         <p className="text-lg dark:text-gray-300 text-gray-900 leading-relaxed">
           <span className="font-semibold text-gray-900 dark:text-white">
             Film Review
@@ -19,7 +20,6 @@ const AboutPlatform = () => {
           and interactive space for movie lovers to discover and discuss films.
         </p>
 
-        {/* Features Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-10 text-left">
           <div
             className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition"
@@ -65,7 +65,6 @@ const AboutPlatform = () => {
           </div>
         </div>
 
-        {/* Footer text */}
         <p className="mt-10 text-gray-900 dark:text-gray-400 italic">
           "Your trusted platform for honest and detailed movie reviews."
         </p>

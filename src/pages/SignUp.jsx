@@ -170,7 +170,7 @@ const SignUp = () => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white py-2 rounded-lg font-semibold transition cursor-pointer"
+            className="w-full bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white py-2 rounded-lg font-semibold transition cursor-pointer"
           >
             Sign Up
           </button>
@@ -188,7 +188,7 @@ const SignUp = () => {
           Already have an account?{" "}
           <Link
             to="/sign-in"
-            className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 hover:underline"
+            className="text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500 hover:underline"
           >
             Login
           </Link>

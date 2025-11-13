@@ -29,7 +29,7 @@ const Search = () => {
           />
         </label>
 
-        <button className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l dark:focus:ring-purple-800 font-medium px-5 py-[9px] rounded-r-xl">
+        <button className="text-white bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l dark:focus:ring-purple-800 font-medium px-5 py-[9px] rounded-r-xl">
           Search
         </button>
       </div>

@@ -14,7 +14,6 @@ const CollectionCard = ({ movie, setMovies }) => {
     runtime,
     release_year,
   } = movie;
-  // console.log(movie);
 
   const handleEdit = (id) => {
     navigate(`/update-movie/${id}`);
@@ -41,8 +40,8 @@ const CollectionCard = ({ movie, setMovies }) => {
   };
   return (
     <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white">
-      <div className="md:grid md:grid-cols-8">
-        <div className="md:col-span-6">
+      <div className="lg:grid lg:grid-cols-8">
+        <div className="lg:col-span-6">
           <div className="flex gap-3">
             <div className="h-26">
               <img className="h-full" src={image_url} alt="" />
