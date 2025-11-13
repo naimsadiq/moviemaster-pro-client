@@ -21,22 +21,33 @@ const CollectionCard = ({ movie, setMovies }) => {
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Deleted!",
-      icon: "success",
-      draggable: true,
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
+            console.log(data);
+          });
+        Swal.fire({
+          title: "Deleted!",
+          text: "The movie has been deleted.",
+          icon: "success",
+        });
+      }
     });
-    console.log(id);
-    fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
-        console.log(data);
-      });
   };
   return (
     <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white">

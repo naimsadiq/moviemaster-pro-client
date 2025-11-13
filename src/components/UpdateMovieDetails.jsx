@@ -33,7 +33,7 @@ const UpdateMovieDetails = () => {
     if (!formData) return;
 
     Swal.fire({
-      title: "Updated!",
+      title: "Successfully Updated!",
       icon: "success",
       draggable: true,
     });

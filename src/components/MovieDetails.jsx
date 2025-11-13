@@ -50,35 +50,34 @@ const MovieDetails = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
-        console.log(data);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then(() => {
+            setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
+          });
+        navigate("/movies");
         Swal.fire({
-          title: "Are you sure?",
-          text: "Do you want to delete the movie?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/movies");
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your Movie has been deleted.",
-              icon: "success",
-            });
-          }
+          title: "Deleted!",
+          text: "The movie has been deleted.",
+          icon: "success",
         });
-      });
+      }
+    });
   };
 
   const handleWatchlist = (movie) => {
@@ -114,7 +113,7 @@ const MovieDetails = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Your movie Watchlist has been saved",
           showConfirmButton: false,
           timer: 1500,
         });
