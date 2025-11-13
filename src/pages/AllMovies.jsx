@@ -19,7 +19,7 @@ const AllMovies = () => {
 
   return (
     <div>
-      <div className="md:max-w-9/12 max-w-11/12 mx-auto pt-6">
+      <div className="md:max-w-9/12 max-w-11/12 mx-auto py-6">
         <SearchBar
           setSearchedMovies={setSearchedMovies}
           setLoading={setLoading}

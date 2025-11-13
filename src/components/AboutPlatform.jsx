@@ -21,7 +21,12 @@ const AboutPlatform = () => {
 
         {/* Features Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-10 text-left">
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition">
+          <div
+            className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition"
+            data-aos="flip-right"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+          >
             <h3 className="text-xl font-semibold mb-3 text-orange-400">
               🎬 Movie Details
             </h3>
@@ -31,7 +36,10 @@ const AboutPlatform = () => {
             </p>
           </div>
 
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition">
+          <div
+            className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition"
+            data-aos="zoom-in"
+          >
             <h3 className="text-xl font-semibold mb-3 text-orange-400">
               ⭐ User Ratings
             </h3>
@@ -41,7 +49,12 @@ const AboutPlatform = () => {
             </p>
           </div>
 
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition">
+          <div
+            className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-orange-400/30 transition"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+          >
             <h3 className="text-xl font-semibold mb-3 text-orange-400">
               📜 Watchlist
             </h3>
