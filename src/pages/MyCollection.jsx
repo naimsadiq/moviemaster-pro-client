@@ -8,7 +8,7 @@ import CollectionCard from "../components/CollectionCard";
 
 const MyCollection = () => {
   const { user } = useContext(AuthContext);
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 

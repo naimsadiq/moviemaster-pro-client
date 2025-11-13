@@ -7,6 +7,7 @@ import { Navigate, useNavigate, useParams } from "react-router";
 import Loader from "../pages/Loader";
 import { MovieContext } from "../context/movieContext";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 const MovieDetails = () => {
   const { id } = useParams();
   const { setMovies } = useContext(MovieContext);
@@ -59,7 +60,24 @@ const MovieDetails = () => {
       .then((data) => {
         setMovies((prevMovies) => prevMovies.filter((m) => m._id !== id));
         console.log(data);
-        navigate("/movies");
+        Swal.fire({
+          title: "Are you sure?",
+          text: "Do you want to delete the movie?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/movies");
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Movie has been deleted.",
+              icon: "success",
+            });
+          }
+        });
       });
   };
 
@@ -94,6 +112,13 @@ const MovieDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => {
         console.log(err);

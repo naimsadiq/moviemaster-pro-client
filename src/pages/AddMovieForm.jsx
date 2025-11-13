@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { MovieContext } from "../context/movieContext";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const AddMovieForm = () => {
   const { user } = useContext(AuthContext);
   const { movies, setMovies } = useContext(MovieContext);
-
-  console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,13 +50,23 @@ const AddMovieForm = () => {
       body: JSON.stringify(newMovieData),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         // toast.success("Successfully added!")
         const remaingMovies = [...movies, newMovieData];
         setMovies(remaingMovies);
-        console.log(data);
+        Swal.fire({
+          title: "Successfully added!",
+          icon: "success",
+          draggable: true,
+        });
+        e.target.reset();
       })
       .catch((err) => {
+        Swal.fire({
+          title: "Could not add!",
+          icon: "warning",
+          draggable: true,
+        });
         console.log(err);
       });
   };
