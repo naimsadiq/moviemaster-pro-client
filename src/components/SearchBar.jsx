@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { MovieContext } from "../context/movieContext";
-
 const SearchBar = ({ setSearchedMovies, setLoading, allMovies }) => {
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,8 +26,11 @@ const SearchBar = ({ setSearchedMovies, setLoading, allMovies }) => {
       });
   };
   return (
-    <div className="pr-6">
-      <form onSubmit={handleSearch} className="flex items-center justify-end">
+    <div className="md:pr-6 pr-0">
+      <form
+        onSubmit={handleSearch}
+        className="flex items-center md:px-0 px-6  justify-center md:justify-end"
+      >
         <label className="flex items-center gap-2 bg-white/10 border border-gray-400/30 rounded-l-xl px-4 py-2 backdrop-blur-sm">
           <svg
             className="h-5 w-5 text-gray-300"
@@ -52,7 +52,7 @@ const SearchBar = ({ setSearchedMovies, setLoading, allMovies }) => {
             type="search"
             name="search"
             placeholder="Search for a movie..."
-            className="outline-none text-gray-700  w-56 sm:w-72"
+            className="outline-none text-gray-700  md:w-56 w-45"
             onChange={(e) => {
               if (e.target.value.trim() === "") {
                 setSearchedMovies(allMovies);

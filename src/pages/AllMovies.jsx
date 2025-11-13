@@ -19,13 +19,13 @@ const AllMovies = () => {
 
   return (
     <div>
-      <div className="max-w-9/12 mx-auto pt-6">
+      <div className="md:max-w-9/12 max-w-11/12 mx-auto pt-6">
         <SearchBar
           setSearchedMovies={setSearchedMovies}
           setLoading={setLoading}
           allMovies={movies}
         ></SearchBar>
-        <div className="grid grid-cols-5 gap-8 py-8">
+        <div className="md:grid md:grid-cols-5 grid-cols-1 flex justify-center flex-wrap gap-8 pt-8">
           {searchedMovies.map((movie) => (
             <MovieCard key={movie._id} movie={movie}></MovieCard>
           ))}

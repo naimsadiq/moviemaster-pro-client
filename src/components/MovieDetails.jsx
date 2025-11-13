@@ -105,8 +105,8 @@ const MovieDetails = () => {
   }
   return (
     <div className="bg-[#200b0b] min-h-8/12">
-      <div className="max-w-9/12 mx-auto px-4">
-        <div className="flex gap-8 py-20">
+      <div className="md:max-w-9/12 max-w-11/12 mx-auto px-4">
+        <div className="flex flex-col md:flex-row gap-8 md:py-20 py-12">
           <div className="h-[470px]">
             <img className="h-full rounded-md" src={image_url} alt="" />
           </div>

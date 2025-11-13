@@ -32,7 +32,7 @@ const MyWatchlist = () => {
   }
   return (
     <div className="min-h-screen">
-      <div className="max-w-9/12 mx-auto py-10">
+      <div className="md:max-w-9/12 max-w-11/12 mx-auto py-10">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           My Watchlist
         </h2>

@@ -40,9 +40,9 @@ const CollectionCard = ({ movie, setMovies }) => {
       });
   };
   return (
-    <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white ">
-      <div className="grid grid-cols-8">
-        <div className="col-span-6">
+    <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white">
+      <div className="md:grid md:grid-cols-8">
+        <div className="md:col-span-6">
           <div className="flex gap-3">
             <div className="h-26">
               <img className="h-full" src={image_url} alt="" />
@@ -62,7 +62,7 @@ const CollectionCard = ({ movie, setMovies }) => {
               </p>
             </div>
           </div>
-          <div className="mt-5">
+          <div className="mt-5 md:mb-0 mb-5">
             <p>{overview}</p>
           </div>
         </div>

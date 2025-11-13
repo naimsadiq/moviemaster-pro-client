@@ -36,7 +36,7 @@ const WatchListCard = ({ movie, setMovies }) => {
   };
   return (
     <div className="shadow-md rounded-md p-5 bg-white text-gray-800 dark:bg-[#121128] dark:text-white ">
-      <div className="flex justify-between">
+      <div className="md:flex justify-between">
         <div>
           <div className="flex gap-3">
             <div className="h-26">
@@ -57,7 +57,7 @@ const WatchListCard = ({ movie, setMovies }) => {
               </p>
             </div>
           </div>
-          <div className="mt-5">
+          <div className="mt-5 md:mb-0 mb-5">
             <p>{overview}</p>
           </div>
         </div>

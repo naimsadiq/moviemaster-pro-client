@@ -28,7 +28,7 @@ const GenreMovies = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="max-w-9/12 mx-auto pt-10">
+    <div className="max-w-11/12 md:max-w-9/12 mx-auto pt-10">
       <h2 className="text-3xl font-bold text-center mb-6">
         🎬 {genreName} Movies
       </h2>
@@ -38,7 +38,7 @@ const GenreMovies = () => {
           No movies found in this genre.
         </p>
       ) : (
-        <div className="grid grid-cols-5 gap-8">
+        <div className="md:grid md:grid-cols-5 grid-cols-1 flex justify-center flex-wrap gap-8 pt-8">
           {movies.map((movie) => (
             <MovieCard key={movie._id} movie={movie} />
           ))}

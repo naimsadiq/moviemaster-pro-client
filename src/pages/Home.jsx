@@ -30,7 +30,7 @@ const Home = () => {
   }
   return (
     <div>
-      <section className="relative md:h-[550px] h-[400px] overflow-hidden">
+      <section className="relative md:h-[550px] h-[430px] overflow-hidden">
         <img
           className="w-full h-full absolute object-cover"
           src={banner}
@@ -61,7 +61,7 @@ const Home = () => {
             },
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper absolute md:w-10/12 w-11/12 mx-auto left-8 md:left-0 md:top-23 top-5"
+          className="mySwiper absolute md:w-10/12 w-11/12 mx-auto left-8 md:left-0 md:top-23  top-5"
         >
           <div className="md:py-5">
             {moviesData.map((movie) => (

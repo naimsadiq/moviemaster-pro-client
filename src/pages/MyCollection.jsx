@@ -23,6 +23,7 @@ const MyCollection = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setMovies(data);
         setLoading(false);
       });
@@ -32,7 +33,7 @@ const MyCollection = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="max-w-9/12 mx-auto py-10 h-screen">
+    <div className="max-w-11/12 md:max-w-9/12 mx-auto py-10 min-h-screen">
       <h2 className="text-2xl font-semibold mb-6 text-center">My Collection</h2>
       {movies.length === 0 ? (
         <div className="flex flex-col items-center justify-start mt-20 text-gray-500">
