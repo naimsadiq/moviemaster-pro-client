@@ -30,13 +30,13 @@ const Home = () => {
   }
   return (
     <div>
-      <section className="relative h-[550px] overflow-hidden">
+      <section className="relative md:h-[550px] h-[400px] overflow-hidden">
         <img
           className="w-full h-full absolute object-cover"
           src={banner}
           alt=""
         />
-        <div className="w-full h-[600px] absolute bg-[#00000060]"></div>
+        <div className="w-full md:h-[550px] h-[550px] absolute bg-[#00000060]"></div>
         {/* <Search></Search> */}
         {/* <BannerText></BannerText> */}
         <Swiper
@@ -61,7 +61,7 @@ const Home = () => {
             },
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper absolute w-10/12 mx-auto top-23"
+          className="mySwiper absolute md:w-10/12 w-11/12 mx-auto left-8 md:left-0 md:top-23 top-5"
         >
           <div className="md:py-5">
             {moviesData.map((movie) => (

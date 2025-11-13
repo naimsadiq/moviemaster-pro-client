@@ -112,7 +112,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#f8fafc] text-[#1e293b] dark:bg-[#121212] dark:text-white shadow">
-      <div className="navbar md:w-9/12 mx-auto">
+      <div className="navbar md:w-9/12 mx-auto px-0 md:px-2">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -168,7 +168,7 @@ const Navbar = () => {
 
             {/* sun icon */}
             <svg
-              className="swap-off h-10 w-10 fill-current"
+              className="swap-off md:h-10 h-6 md:w-10 w-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -177,7 +177,7 @@ const Navbar = () => {
 
             {/* moon icon */}
             <svg
-              className="swap-on h-10 w-10 fill-current"
+              className="swap-on md:h-10 h-6 md:w-10 w-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -195,7 +195,7 @@ const Navbar = () => {
               }
             >
               <img
-                className="h-12 w-12 object-cover rounded-full cursor-pointer"
+                className="md:h-12 md:w-12 h-10 w-10 object-cover rounded-full cursor-pointer"
                 src={user?.photoURL || profileIcon}
                 alt="profile pic"
               />
@@ -228,7 +228,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleLogOut}
               className={({ isActive }) =>
-                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 ${
+                `text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-full text-sm md:px-5 px-4 md:py-2.5 py-2 text-center me-2 mb-2 ${
                   isActive
                     ? "font-semibold bg-linear-to-r from-blue-600 to-purple-600 text-white"
                     : "text-black"

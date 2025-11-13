@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../context/movieContext";
 import MovieCard from "./MovieCard";
+import { Link } from "react-router";
 
 const LatestMovies = () => {
   const { movies, loading } = useContext(MovieContext);
@@ -19,12 +20,14 @@ const LatestMovies = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="max-w-9/12 mx-auto">
+    <div className="md:max-w-9/12 max-w-11/12 mx-auto">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Latest Movies</h1>
-        <div className="pr-6">View all</div>
+        <Link to={"/movies"} className="pr-0 md:pr-6 hover:underline">
+          View all
+        </Link>
       </div>
-      <div className="grid grid-cols-5 gap-8 pt-8">
+      <div className="md:grid md:grid-cols-5 grid-cols-1 flex justify-center flex-wrap gap-8 pt-8">
         {latestMovies.map((movie) => (
           <MovieCard key={movie._id} movie={movie}></MovieCard>
         ))}

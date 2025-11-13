@@ -15,7 +15,7 @@ const genres = [
 const GenreMenu = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex flex-wrap justify-center gap-4 py-6 rounded-xl shadow-md">
+    <nav className="flex flex-wrap justify-center gap-4 px-2 md:px-0 py-6 rounded-xl shadow-md">
       {genres.map((genre) => (
         <button
           key={genre.name}
