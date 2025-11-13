@@ -30,6 +30,7 @@ const MyWatchlist = () => {
   if (loading) {
     return <Loader></Loader>;
   }
+  
   return (
     <div className="min-h-screen">
       <div className="lg:max-w-9/12 max-w-11/12 mx-auto py-10">

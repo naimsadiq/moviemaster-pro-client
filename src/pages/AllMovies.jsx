@@ -7,7 +7,6 @@ import Loader from "./Loader";
 const AllMovies = () => {
   const { movies, loading, setLoading } = useContext(MovieContext);
   const [searchedMovies, setSearchedMovies] = useState([]);
-  // console.log(movies);
 
   useEffect(() => {
     setSearchedMovies(movies);

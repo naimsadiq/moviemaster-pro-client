@@ -213,20 +213,26 @@ const MovieDetails = () => {
       </div>
       <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box w-11/12 max-w-5xl">
-          <iframe
-            width="940"
-            height="600"
-            src={trailer_url}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+          <div className="relative w-full">
+            <div
+              className="relative w-full overflow-hidden rounded-lg"
+              style={{ paddingTop: "56.25%" }}
+            >
+              <iframe
+                src={trailer_url}
+                title="YouTube video player"
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
 
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn">Close</button>
+              <button className="btn w-full sm:w-auto">Close</button>
             </form>
           </div>
         </div>

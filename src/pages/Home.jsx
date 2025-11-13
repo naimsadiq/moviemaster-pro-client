@@ -1,6 +1,5 @@
 // import React, { useContext, useEffect, useState } from "react";
 import TopRatedMovies from "../components/TopRatedMovies";
-import Search from "../components/header/Search";
 import banner from "../assets/banner.jpeg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,13 +9,12 @@ import { useContext, useEffect, useState } from "react";
 import Loader from "./Loader";
 import LatestMovies from "../components/LatestMovies";
 import MovieCard from "../components/MovieCard";
-import BannerText from "../components/header/BannerText";
 import GenreMenu from "../components/GenreMenu";
 import AboutPlatform from "../components/AboutPlatform";
 const Home = () => {
   const { movies, loading } = useContext(MovieContext);
   const [moviesData, setMoviesDatas] = useState([]);
-  // console.log(movies);
+
   useEffect(() => {
     if (movies && movies.length > 0) {
       const sortedMovie = movies
@@ -37,8 +35,6 @@ const Home = () => {
           alt=""
         />
         <div className="w-full md:h-[550px] h-[550px] absolute bg-[#00000060]"></div>
-        {/* <Search></Search> */}
-        {/* <BannerText></BannerText> */}
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -72,15 +68,19 @@ const Home = () => {
           </div>
         </Swiper>
       </section>
+
       <section className="bg-[#f9fafb] dark:bg-[#23036a]">
         <GenreMenu></GenreMenu>
       </section>
+
       <section className="py-10 bg-[#f1f5f9] text-[#6992f3] dark:bg-[#191e24] dark:text-white">
         <TopRatedMovies></TopRatedMovies>
       </section>
+
       <section className="py-10 bg-[#f5f3ff] text-[#6992f3] dark:bg-[#121212] dark:text-white">
         <LatestMovies></LatestMovies>
       </section>
+
       <section className="">
         <AboutPlatform></AboutPlatform>
       </section>

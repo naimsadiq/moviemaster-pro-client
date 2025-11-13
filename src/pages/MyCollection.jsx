@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Loader from "./Loader";
-import MovieCard from "../components/MovieCard";
 import { useNavigate } from "react-router";
 import movieCamera from "../assets/movie-camera.png";
 import CollectionCard from "../components/CollectionCard";
@@ -23,7 +22,6 @@ const MyCollection = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMovies(data);
         setLoading(false);
       });
@@ -32,6 +30,7 @@ const MyCollection = () => {
   if (loading) {
     return <Loader></Loader>;
   }
+
   return (
     <div className="max-w-11/12 lg:max-w-9/12 mx-auto py-10 min-h-screen">
       <h2 className="text-2xl font-semibold mb-6 text-center">My Collection</h2>
@@ -47,7 +46,7 @@ const MyCollection = () => {
           </p>
           <button
             onClick={() => navigate("/")}
-            className="mt-4 px-5 py-2 bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white rounded-lg font-semibold transition cursor-pointer rounded-lg hover:bg-blue-700 transition"
+            className="mt-4 px-5 py-2 bg-linear-to-r from-purple-500 to-pink-500 hover:bg-linear-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 text-white font-semibold cursor-pointer rounded-lg hover:bg-blue-700 transition"
           >
             Browse Movies
           </button>

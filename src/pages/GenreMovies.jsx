@@ -5,7 +5,7 @@ import Loader from "./Loader";
 import MovieCard from "../components/MovieCard";
 
 const GenreMovies = () => {
-  const { genreName } = useParams(); // URL থেকে genre নাম নেওয়া
+  const { genreName } = useParams();
   const { loading, setLoading } = useContext(MovieContext);
   const [movies, setMovies] = useState([]);
 
