@@ -6,7 +6,7 @@ const MovieProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch("https://moviemaster-pro-server-rho.vercel.app/movies")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);

@@ -42,7 +42,7 @@ const AddMovieForm = () => {
       created_at: new Date().toISOString(),
     };
 
-    fetch("http://localhost:3000/movies", {
+    fetch("https://moviemaster-pro-server-rho.vercel.app/movies", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

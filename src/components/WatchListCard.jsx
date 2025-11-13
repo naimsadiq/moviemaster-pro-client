@@ -22,7 +22,7 @@ const WatchListCard = ({ movie, setMovies }) => {
       draggable: true,
     });
     console.log(id);
-    fetch(`http://localhost:3000/my-watchlist/${id}`, {
+    fetch(`https://moviemaster-pro-server-rho.vercel.app/my-watchlist/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

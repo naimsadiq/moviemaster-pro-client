@@ -11,7 +11,9 @@ const GenreMovies = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/movies?genre=${genreName}`)
+    fetch(
+      `https://moviemaster-pro-server-rho.vercel.app/movies?genre=${genreName}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);

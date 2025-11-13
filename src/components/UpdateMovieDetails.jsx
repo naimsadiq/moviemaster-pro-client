@@ -39,14 +39,17 @@ const UpdateMovieDetails = () => {
     });
 
     const { _id, ...submissionData } = formData;
-    fetch(`http://localhost:3000/movies/${formData._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${user?.accessToken}`,
-      },
-      body: JSON.stringify(submissionData),
-    })
+    fetch(
+      `https://moviemaster-pro-server-rho.vercel.app/movies/${formData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${user?.accessToken}`,
+        },
+        body: JSON.stringify(submissionData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

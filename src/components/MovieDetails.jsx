@@ -15,7 +15,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/movie-details/${id}`, {
+    fetch(`https://moviemaster-pro-server-rho.vercel.app/movie-details/${id}`, {
       headers: {
         authorization: `Bearer ${user?.accessToken}`,
       },
@@ -49,7 +49,7 @@ const MovieDetails = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/movie/${id}`, {
+    fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -81,13 +81,16 @@ const MovieDetails = () => {
       watchlist_by: user?.email,
       created_at: movie.created_at,
     };
-    fetch(`http://localhost:3000/watchlist/${movie._id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(movieData),
-    })
+    fetch(
+      `https://moviemaster-pro-server-rho.vercel.app/watchlist/${movie._id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(movieData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

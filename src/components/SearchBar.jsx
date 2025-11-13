@@ -14,7 +14,9 @@ const SearchBar = ({ setSearchedMovies, setLoading, allMovies }) => {
 
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(
+      `https://moviemaster-pro-server-rho.vercel.app/search?search=${search_text}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

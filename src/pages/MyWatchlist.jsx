@@ -12,11 +12,14 @@ const MyWatchlist = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-watchlist?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://moviemaster-pro-server-rho.vercel.app/my-watchlist?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);

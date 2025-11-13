@@ -84,7 +84,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/movies/${params.id}`),
+          fetch(
+            `https://moviemaster-pro-server-rho.vercel.app/movies/${params.id}`
+          ),
       },
 
       {

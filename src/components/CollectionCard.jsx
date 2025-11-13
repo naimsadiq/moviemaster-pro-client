@@ -27,7 +27,7 @@ const CollectionCard = ({ movie, setMovies }) => {
       draggable: true,
     });
     console.log(id);
-    fetch(`http://localhost:3000/movie/${id}`, {
+    fetch(`https://moviemaster-pro-server-rho.vercel.app/movie/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
